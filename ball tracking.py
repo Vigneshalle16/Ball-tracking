@@ -22,7 +22,7 @@ if not args.get("video", False):
 else:
     vs = cv2.VideoCapture(args["video"])
 
-time.sleep(2.0)  # Allow time for camera to initialize
+time.sleep(2.0)  
 
 while True:
     # Grab the current frame
@@ -47,7 +47,7 @@ while True:
     # Initialize the center of the ball
     center = None
 
-    # If there are any contours, find the largest one
+    
     if len(contours) > 0:
         # Sort the contours by area and take the largest
         largest_contour = max(contours, key=cv2.contourArea)
@@ -64,7 +64,7 @@ while True:
         # Draw a rectangle around the ball
         cv2.rectangle(frame, (x, y), (x + w, y + h), (0, 0, 255), 2)
 
-    # Update the points deque with the center of the ball
+    
     pts.appendleft(center)
 
     # Draw the trail of the ball
